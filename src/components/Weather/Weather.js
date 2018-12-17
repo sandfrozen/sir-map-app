@@ -28,9 +28,9 @@ class Weather extends Component {
       latitude: lat,
       longitude: lng
     }
-    // DarkSkyApi.loadCurrent(position).then(result => {
-    //   this.setState({ weather: result })
-    // })
+    DarkSkyApi.loadCurrent(position).then(result => {
+      this.setState({ weather: result })
+    })
   }
 
   render () {
