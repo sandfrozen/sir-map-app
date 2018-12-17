@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.6.2",
+    "axios": "^0.18.0",
+    "dark-sky-api": "^0.6.32",
+    "flickrapi": "^0.6.0",
+    "google-maps-react": "^2.0.2",
+    "newsapi": "^2.4.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"

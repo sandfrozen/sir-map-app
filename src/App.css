@@ -1,32 +1,32 @@
-.App {
-  text-align: center;
+.container {
+  display: flex;
+  /* or inline-flex */
+  border: 1px black solid;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.map_item {
+  width: 50vw;
+  height: 60vh;
+  border: 1px black solid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather_item {
+  width: 50vw;
+  height: 60vh;
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.extra_item {
+  width: 33.3vw;
+  height: 39vh;
+  border: 1px black solid;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
+  margin: auto;
 }

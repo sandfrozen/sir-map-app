@@ -1,0 +1,45 @@
+.city_info {
+  color: gray;
+  text-align: left;
+  font-style: italic;
+  font-size: 0.7em;
+  margin: 12px
+}
+
+.city_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.country {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: darkgray;
+}
+
+.city {
+  font-size: 1.4em;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+}
+
+.street {
+  text-align: center;
+}
+
+.city_population {
+  
+}
+
+.cannot {
+  font-size: 0.7em;
+  color: gray;
+  padding-top: 8px;
+}
+
+.flag {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.27);
+}
