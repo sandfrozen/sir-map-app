@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/sir-map-app/precache-manifest.d6381dfe315c0f9096f189b52df9ef86.js"
+  "/sir-map-app/precache-manifest.615c3697a7a59e382704d9310711f845.js"
 );
 
 workbox.clientsClaim();
