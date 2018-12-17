@@ -23,18 +23,19 @@ class News extends Component {
           {n.title}
         </li>
       ))
-      return (
-        <div className='news_container'>
-          <div className='h4_container'>
-            Top Headlines in {country}:
-          </div>
+      if (listOfNews.length === 0) {
+        return <div>Could not find news from {country}.</div>
+      } else {
+        return (
+          <div className='news_container'>
+            <div className='h4_container'>Top Headlines in {country}:</div>
 
-          {listOfNews.length === 0 && <div>there is now news :(</div>}
-          <div className='news_list'>
-            <ul>{listOfNews}</ul>
+            <div className='news_list'>
+              <ul>{listOfNews}</ul>
+            </div>
           </div>
-        </div>
-      )
+        )
+      }
     }
   }
 }

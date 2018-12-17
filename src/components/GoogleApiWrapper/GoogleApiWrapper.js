@@ -19,7 +19,7 @@ export class MapContainer extends Component {
     return (
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={2}
         containerStyle={containerStyle}
         onClick={this.onClick}
         initialCenter={{

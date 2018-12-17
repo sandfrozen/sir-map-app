@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import './style.css'
 import LinearBuffer from '../LinearBuffer'
+import Clock from 'react-live-clock'
 
 class CityInfo extends Component {
   render () {
@@ -12,7 +13,9 @@ class CityInfo extends Component {
       fetchingAddress,
       fetchingFlag,
       population,
-      fetchingError
+      fetchingError,
+      fetchingTime,
+      timeZone
     } = this.props
     if (fetchingError === true) {
       return (
@@ -49,7 +52,6 @@ class CityInfo extends Component {
             )}
             {fetchingFlag === false && (
               <div>
-                
                 <img
                   src={population.flag}
                   className='flag'
@@ -57,6 +59,21 @@ class CityInfo extends Component {
                   height='auto'
                   alt='flag'
                 />
+              </div>
+            )}
+          </div>
+          <hr style={{ width: 100 }} />
+          <div className='city_population'>
+            {fetchingTime === true && (
+              <div>
+                Time is loading...
+                <LinearBuffer />
+              </div>
+            )}
+            {fetchingTime === false && (
+              <div className='time_container'>
+                <Clock format={'HH:mm:ss'} ticking timezone={timeZone} />
+                <Clock format={'dddd, MMMM Do YYYY'} timezone={timeZone} />
               </div>
             )}
           </div>

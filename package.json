@@ -8,9 +8,13 @@
     "dark-sky-api": "^0.6.32",
     "flickrapi": "^0.6.0",
     "google-maps-react": "^2.0.2",
+    "moment": "^2.23.0",
+    "moment-timezone": "^0.5.23",
     "newsapi": "^2.4.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-live-clock": "^3.0.0",
+    "react-moment": "^0.8.4",
     "react-scripts": "2.1.1"
   },
   "scripts": {

@@ -26,18 +26,22 @@ class App extends Component {
     news: null,
     fetchingNews: true,
     fetchingPhotos: true,
-    photos: null
+    photos: null,
+    timeZone: '',
+    fetchingTime: true
   }
 
   componentDidMount () {
     this.getAddress()
     this.getFlicker()
+    this.getTime()
   }
 
   setNewCoords = (lat, lng) => {
     this.setState({ lat, lng }, () => {
       this.getAddress()
       this.getFlicker()
+      this.getTime()
     })
   }
 
@@ -66,7 +70,7 @@ class App extends Component {
       )
       .then(result => {
         try {
-          // console.log('address', result.data.results['0'].formatted_address)
+          console.log('address', result)
           let addressObject = result.data.results['0'].address_components
           addressObject.forEach(a => {
             if (a.types.includes('route')) street = a.long_name
@@ -87,7 +91,6 @@ class App extends Component {
           })
           if (country !== '' && country !== old_country) {
             this.getCountryInfo()
-            // this.getTime()
           }
           if (country_code !== '' && country_code !== old_country_code) {
             this.getNews()
@@ -128,10 +131,22 @@ class App extends Component {
   }
 
   getTime = () => {
+    // this.setState({ fetchingTime: true })
+    const old_timezone = this.state.timeZone
+    const { lat, lng, timeZone } = this.state
     axios
-      .get('http://worldtimeapi.org/api/timezone/' + this.state.country)
+      .get(
+        'https://maps.googleapis.com/maps/api/timezone/json?location=' +
+          lat +
+          ',' +
+          lng +
+          '&timestamp=1331161200&key=AIzaSyCFmio79TncN-TlcoFdOX1K8WPxIQHUwxw'
+      )
       .then(result => {
-        // console.log(result)
+        const timeZone = result.data.timeZoneId
+        if(old_timezone !== timeZone) {
+          this.setState({ timeZone: result.data.timeZoneId, fetchingTime: false })
+        }
       })
   }
 
@@ -146,6 +161,7 @@ class App extends Component {
       lng +
       '&per_page=9&format=json&nojsoncallback=1'
     axios.get(link).then(result => {
+      console.log(result)
       photos = result.data.photos.photo
       // let photosIds = photos.map(p => (p.id, p.secret) )
       // console.log('ps', result.data.photos.photo)
@@ -168,7 +184,9 @@ class App extends Component {
       news,
       fetchingNews,
       photos,
-      fetchingPhotos
+      fetchingPhotos,
+      fetchingTime,
+      timeZone
     } = this.state
     return (
       <Fragment>
@@ -195,6 +213,8 @@ class App extends Component {
               fetchingFlag={fetchingFlag}
               population={population}
               fetchingError={fetchingError}
+              timeZone={timeZone}
+              fetchingTime={fetchingTime}
             />
           </div>
           <div className='extra_item'>

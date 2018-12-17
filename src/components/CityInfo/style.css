@@ -30,7 +30,12 @@
   text-align: center;
 }
 
-.city_population {
+.city_population {}
+
+.time_container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   
 }
 
