@@ -70,7 +70,7 @@ class App extends Component {
       )
       .then(result => {
         try {
-          console.log('address', result)
+          // console.log('address', result)
           let addressObject = result.data.results['0'].address_components
           addressObject.forEach(a => {
             if (a.types.includes('route')) street = a.long_name
@@ -133,7 +133,7 @@ class App extends Component {
   getTime = () => {
     // this.setState({ fetchingTime: true })
     const old_timezone = this.state.timeZone
-    const { lat, lng, timeZone } = this.state
+    const { lat, lng } = this.state
     axios
       .get(
         'https://maps.googleapis.com/maps/api/timezone/json?location=' +
@@ -155,13 +155,13 @@ class App extends Component {
     const { lat, lng } = this.state
     let photos = []
     const link =
-      'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0bfdec570e0b535a4b59707cd4e6c30b&lat=' +
+      'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4c09233afcaed9679bba2f43c60206b3&lat=' +
       lat +
       '&lon=' +
       lng +
       '&per_page=9&format=json&nojsoncallback=1'
     axios.get(link).then(result => {
-      console.log(result)
+      // console.log(result)
       photos = result.data.photos.photo
       // let photosIds = photos.map(p => (p.id, p.secret) )
       // console.log('ps', result.data.photos.photo)

@@ -4,7 +4,6 @@ import LinearBuffer from '../LinearBuffer'
 import Photo from './Photo'
 
 import './style.css'
-import { link } from 'fs';
 
 class Flicker extends Component {
   state = { link: '', title: '' }
@@ -54,7 +53,7 @@ class Flicker extends Component {
         return (
           <div className='photos_container'>
             {ps}
-              <div id='myModal' class='modal'>
+              <div id='myModal' className='modal'>
                 <span className='close' onClick={this.handleOnClickClose}>
                   &times;
                 </span>

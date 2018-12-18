@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 class Photo extends Component {
   _handleOnClickPhoto = (link, title) => event => {

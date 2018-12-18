@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 import './style.css'
 import LinearBuffer from '../LinearBuffer'
@@ -28,7 +28,7 @@ class News extends Component {
       } else {
         return (
           <div className='news_container'>
-            <div className='h4_container'>Top Headlines in {country}:</div>
+            <div className='h4_container'>News in {country}:</div>
 
             <div className='news_list'>
               <ul>{listOfNews}</ul>
